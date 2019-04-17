@@ -1,4 +1,4 @@
-class NodeV5 < Formula
+class NodeAT5 < Formula
   desc ""
   homepage ""
   url "https://nodejs.org/dist/v5.12.0/node-v5.12.0.tar.gz"
