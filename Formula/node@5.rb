@@ -9,6 +9,12 @@ class NodeAT5 < Formula
   depends_on "pkg-config" => :build
   depends_on "python@2" => :build
 
+  resource "icu4c" do
+    url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
+    version "58.2"
+    sha256 "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
+  end
+
   def install
     resource("icu4c").stage buildpath/"deps/icu"
     system "./configure", "--prefix=#{prefix}", "--with-intl=full-icu"
