@@ -16,6 +16,8 @@ class NodeAT5 < Formula
   end
 
   def install
+    inreplace "common.gypi", "'MACOSX_DEPLOYMENT_TARGET': '10.7',",
+                             "'MACOSX_DEPLOYMENT_TARGET': '#{MacOS.version}',"
     resource("icu4c").stage buildpath/"deps/icu"
     system "./configure", "--prefix=#{prefix}", "--with-intl=full-icu"
     system "make", "install"
