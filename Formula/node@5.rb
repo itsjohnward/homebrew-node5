@@ -16,6 +16,10 @@ class NodeAT5 < Formula
   end
 
   def install
+    # Switches standard libary for native addons from libstdc++ to libc++ to
+    # match the superenv enforced one for the node binary itself. This fixes
+    # incompatibilities between native addons built with our node-gyp and our
+    # node binary and makes building native addons with XCode 10.1+ possible.
     inreplace "common.gypi", "'MACOSX_DEPLOYMENT_TARGET': '10.7',",
                              "'MACOSX_DEPLOYMENT_TARGET': '#{MacOS.version}',"
     resource("icu4c").stage buildpath/"deps/icu"
