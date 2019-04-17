@@ -20,7 +20,7 @@ class NodeAT5 < Formula
     # match the superenv enforced one for the node binary itself. This fixes
     # incompatibilities between native addons built with our node-gyp and our
     # node binary and makes building native addons with XCode 10.1+ possible.
-    inreplace "common.gypi", "'MACOSX_DEPLOYMENT_TARGET': '10.7',",
+    inreplace "common.gypi", "'MACOSX_DEPLOYMENT_TARGET': '10.5',",
                              "'MACOSX_DEPLOYMENT_TARGET': '#{MacOS.version}',"
     resource("icu4c").stage buildpath/"deps/icu"
     system "./configure", "--prefix=#{prefix}", "--with-intl=full-icu"
